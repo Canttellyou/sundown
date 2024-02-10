@@ -30,22 +30,23 @@ const StyledHeroSection = styled.div`
 
   .sub-text {
     letter-spacing: -0.03em;
-    font-size: 2.12rem;
+    font-size: 2.3vw;
     font-weight: 500;
-    max-width: 32rem;
+    max-width: 33%;
     line-height: 1;
   }
 
   .main-text {
     letter-spacing: -0.03em;
     text-transform: uppercase;
-    font-size: 12rem;
+    font-size: 12vw;
     font-weight: 500;
     line-height: 0.8;
     position: relative;
     text-align: right;
-    max-width: 40%;
+    max-width: 47%;
     margin-right: 1.25rem;
+    object-fit: contain;
   }
 `;
 

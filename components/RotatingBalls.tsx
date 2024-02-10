@@ -15,31 +15,29 @@ const RotatingBalls = () => {
         }}
         animate={{
           transform:
-            "translate3d(-10%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-70deg) skew(0deg, 0deg)",
+            "translate3d(-15%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-75deg) skew(0deg, 0deg)",
         }}
         transition={{
           repeat: Infinity,
-          duration: 3,
+          duration: 2.5,
           repeatType: "reverse",
-          type: "spring",
         }}
         className="ball-two"
       ></motion.div>
       <motion.div
         initial={{
           transform:
-            "translate3d(0%, -5%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-40deg) skew(0deg, 0deg)",
+            "translate3d(0%, -10%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-40deg) skew(0deg, 0deg)",
         }}
         className="ball-one"
         animate={{
           transform:
-            "translate3d(-4%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-80deg) skew(0deg, 0deg)",
+            "translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-80deg) skew(0deg, 0deg)",
         }}
         transition={{
           repeat: Infinity,
-          duration: 3,
+          duration: 2.65,
           repeatType: "reverse",
-          type: "spring",
         }}
       />
     </BallsContainer>
@@ -47,38 +45,38 @@ const RotatingBalls = () => {
 };
 
 const BallsContainer = styled.div`
-  width: 54em;
-  height: 58em;
+  width: 44vw;
+  height: 48vw;
   margin-top: 0;
   position: absolute;
-  top: 10rem;
+  top: 8vw;
   bottom: auto;
   left: auto;
   right: 0%;
   .ball-one {
     z-index: 2;
-    width: 35em;
-    height: 38em;
+    width: 35vw;
+    height: 38vw;
     filter: blur(15px);
     background-color: #fe330a;
     border-radius: 999em;
     position: absolute;
-    top: 18.4em;
+    top: 15.4em;
     bottom: auto;
-    left: 8.4em;
+    left: -8.4em;
     right: auto;
   }
   .ball-two {
     z-index: 3;
-    width: 34em;
-    height: 60em;
+    width: 34vw;
+    height: 60vw;
     filter: blur(20px);
     mix-blend-mode: normal;
-    background-color: #ff681e;
-    background-image: linear-gradient(219deg, #ff9831, 73%);
+    background-color: #fe330a;
+    background-image: linear-gradient(219deg, #fe330a, #fe330a, #ff9831 98%);
     border-radius: 999em;
     position: absolute;
-    top: 31px;
+    top: 41px;
     bottom: auto;
     left: auto;
     right: -19%;
@@ -87,8 +85,8 @@ const BallsContainer = styled.div`
   }
   .ball-three {
     z-index: 3;
-    width: 36em;
-    height: 36em;
+    width: 38vw;
+    height: 38vw;
     filter: blur(20px);
     -webkit-text-fill-color: inherit;
     mix-blend-mode: normal;
@@ -96,9 +94,9 @@ const BallsContainer = styled.div`
     background-clip: border-box;
     border-radius: 999em;
     position: absolute;
-    top: 22.3em;
+    top: 13.3em;
     bottom: auto;
-    left: 15.5em;
+    left: 10.5em;
     right: auto;
     transform-style: preserve-3d;
     will-change: transform;
