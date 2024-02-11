@@ -49,7 +49,7 @@ const BallsContainer = styled.div`
   height: 48vw;
   margin-top: 0;
   position: absolute;
-  top: 8vw;
+  top: 9vw;
   bottom: auto;
   left: auto;
   right: 0%;

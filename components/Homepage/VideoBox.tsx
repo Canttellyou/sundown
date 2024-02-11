@@ -20,12 +20,11 @@ const StyledVideoBox = styled.div`
   position: relative;
   z-index: 5;
   padding: 0 ${defaultStyles.paddingHorizontal};
-  margin-top: 4rem;
+  margin-top: 5vw;
   .video-container {
     object-fit: cover;
     border-radius: 1.25em;
     overflow: hidden;
-    min-height: 100vh;
   }
 `;
 
