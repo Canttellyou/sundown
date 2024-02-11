@@ -22,7 +22,7 @@ const StyledHeroSection = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 ${defaultStyles.paddingHorizontal};
-  margin-top: 9.625em;
+  margin-top: 12.625vw;
   padding-bottom: 3.75em;
   font-family: ${fonts.primary}, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);

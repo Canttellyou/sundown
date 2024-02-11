@@ -4,6 +4,7 @@ import HeroSection from "./HeroSection";
 import VideoBox from "./VideoBox";
 import MarqueSlider from "../MarqueSlider";
 import { marqueList } from "@/utils/constants";
+import FeaturedProducts from "./FeaturedProducts";
 // const Navbar = dynamic(() => import("@/components/Navbar"), {
 //   ssr: false,
 // });
@@ -15,6 +16,7 @@ const Homepage = () => {
       <HeroSection />
       <VideoBox />
       <MarqueSlider list={marqueList} />
+      <FeaturedProducts />
     </div>
   );
 };
