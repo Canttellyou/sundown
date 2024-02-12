@@ -1,4 +1,9 @@
-import { showCaseFive, showCaseThree, showCaseTwo } from "@/images";
+import {
+  showCaseFive,
+  showCaseSeven,
+  showCaseThree,
+  showCaseTwo,
+} from "@/images";
 import { ProjectsProps } from "@/interfaces/consts";
 
 export const marqueList = ["Environments", "experience", "content"];
@@ -55,7 +60,7 @@ export const projects: Array<ProjectsProps> = [
     title: "SOHO NYC",
     id: 7,
     sourceType: "photo",
-    source: showCaseFive,
+    source: showCaseSeven,
     type: "Environment",
     brand: "Arc'teryx",
   },

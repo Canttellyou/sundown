@@ -4,7 +4,7 @@ export interface ProjectsProps {
   title: string;
   id: number;
   sourceType: "video" | "photo";
-  source: string | StaticImageData;
+  source: any;
   type: string;
   brand: string;
 }
