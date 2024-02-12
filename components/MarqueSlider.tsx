@@ -11,7 +11,7 @@ const MarqueSlider = ({ list }: MarqueSliderProps) => {
         <div key={index} className="flex items-center">
           <h2
             style={{
-              fontSize: "10vw",
+              fontSize: "8.5vw",
               padding: "0 1rem",
               textTransform: "uppercase",
               fontWeight: "500",
@@ -21,8 +21,8 @@ const MarqueSlider = ({ list }: MarqueSliderProps) => {
           </h2>
           <div
             style={{
-              width: "4vw",
-              height: "4vw",
+              width: "3vw",
+              height: "3vw",
               background: defaultColors.primaryOrange,
               borderRadius: "50%",
             }}

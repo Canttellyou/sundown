@@ -50,7 +50,7 @@ const StyledFeaturedProducts = styled.div`
 
     h1 {
       max-width: 55.25vw;
-      font-size: 5.25vw;
+      font-size: 4.5vw;
       font-weight: 500;
       line-height: 1;
       letter-spacing: -0.03em;
@@ -59,7 +59,7 @@ const StyledFeaturedProducts = styled.div`
 
   .we-do {
     margin-top: 11vw;
-    max-width: 22vw;
+    max-width: 17.5vw;
     .image-container {
       width: 100%;
       overflow: hidden;
@@ -70,7 +70,7 @@ const StyledFeaturedProducts = styled.div`
       font-family: ${fonts.secondary}, sans-serif;
       margin-top: 2vw;
       font-weight: 400;
-      font-size: 1.2vw;
+      font-size: 0.95vw;
       line-height: 1.4;
     }
   }
