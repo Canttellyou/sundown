@@ -5,12 +5,14 @@ import { defaultStyles, fonts } from "@/utils/styling";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
+import RotatingBallsTwo from "../RotatingBallsTwo";
 
 const FeaturedProducts = () => {
   return (
     <StyledFeaturedProducts>
       <div className="featured-content">
         <section className="who-container">
+          <RotatingBallsTwo />
           <h1>
             We are a group of design-driven, goal-focused creators, producers,
             and designers who believe that the details make all the difference.
@@ -39,7 +41,7 @@ const FeaturedProducts = () => {
 
 const StyledFeaturedProducts = styled.div`
   padding: 0 ${defaultStyles.paddingHorizontal};
-  margin-top: 8vw;
+  margin-top: 12vw;
   width: 100%;
 
   .who-container {
@@ -47,6 +49,7 @@ const StyledFeaturedProducts = styled.div`
     justify-content: space-between;
     width: 100%;
     padding: 0 calc(${defaultStyles.paddingHorizontal} + 2%);
+    position: relative;
 
     h1 {
       max-width: 55.25vw;
