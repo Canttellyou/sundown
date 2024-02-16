@@ -3,25 +3,48 @@ import { fonts } from "@/utils/styling";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
 
 interface ButtonProps {
   title: string;
+  icon?: string | StaticImageData;
+  iconPosition?: "left" | "right";
+  hoverIcon?: string | StaticImageData;
 }
 
-const CustomButton = ({ title }: ButtonProps) => {
+const CustomButton = ({
+  title,
+  icon,
+  iconPosition,
+  hoverIcon,
+}: ButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
     <StyledButtonContainer>
       <StyledButton
-        initial={{ transform: "scale(1)" }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        animate={
-          isHovered ? { transform: "scale(1.02)" } : { transform: "scale(1)" }
-        }
-        transition={{ delay: 0.15, duration: 0.35 }}
       >
+        {!isHovered && icon && iconPosition && iconPosition === "left" && (
+          <Image src={icon} alt={title} className="title" />
+        )}
+        {isHovered &&
+          icon &&
+          iconPosition &&
+          hoverIcon &&
+          iconPosition === "left" && <Image src={hoverIcon} alt={title} />}
         <div className="title"> {title}</div>
+        {!isHovered && icon && iconPosition && iconPosition === "right" && (
+          <Image src={icon} alt={title} />
+        )}
+        {isHovered &&
+          icon &&
+          iconPosition &&
+          hoverIcon &&
+          iconPosition === "right" && (
+            <Image className="title" src={hoverIcon} alt={title} />
+          )}
+
         <AnimatePresence>
           {isHovered && (
             <motion.div
@@ -51,6 +74,9 @@ const StyledButton = styled(motion.button)`
   transform: color 0.25s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
   &:hover {
     color: white;

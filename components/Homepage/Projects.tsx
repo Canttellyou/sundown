@@ -7,6 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { defaultStyles } from "@/utils/styling";
 import Image from "next/image";
 import { defaultColors } from "@/utils/colors";
+import CustomButton from "../CustomButton";
+import Link from "next/link";
+import { nextIcon, nextIconHover } from "@/images";
 
 const Projects = () => {
   const [inFocusId, setInFocusId] = useState(0);
@@ -38,7 +41,7 @@ const Projects = () => {
             key={project.id}
             className="project"
             style={{
-              borderTop: project.id != 1 ? "1px solid rgba(0,0,0,0.2)" : "",
+              borderBottom: "1px solid rgba(0,0,0,0.2)",
             }}
             onMouseEnter={() => setInFocusId(project.id)}
             onMouseLeave={() => setInFocusId(0)}
@@ -63,6 +66,16 @@ const Projects = () => {
           </motion.div>
         </>
       ))}
+      <div className="btn-container">
+        <Link href={"/"}>
+          <CustomButton
+            title="All Projects"
+            icon={nextIcon}
+            iconPosition="right"
+            hoverIcon={nextIconHover}
+          />
+        </Link>
+      </div>
     </StyledProjectsContainer>
   );
 };
@@ -109,6 +122,11 @@ const StyledProjectsContainer = styled.div`
       object-position: center;
       height: 100%;
     }
+  }
+
+  .btn-container {
+    width: 100%;
+    padding: 2rem ${defaultStyles.paddingHorizontal};
   }
 `;
 
