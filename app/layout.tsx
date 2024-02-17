@@ -22,6 +22,7 @@ export default function RootLayout({
           href="https://db.onlinewebfonts.com/c/cddfddeff0f66d9f03e9df2585ea819e?family=NeueHaasDisplay-Roman"
           rel="stylesheet"
         />
+        <link type="image/svg" rel="icon" href="/icon.svg" />
       </head>
       <body>{children}</body>
     </html>
