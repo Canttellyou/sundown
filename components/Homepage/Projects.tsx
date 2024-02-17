@@ -26,7 +26,7 @@ const Projects = () => {
                 className="preview-container"
               >
                 {project.sourceType === "photo" && (
-                  <Image src={project.source} alt={project.title} />
+                  <Image priority src={project.source} alt={project.title} />
                 )}
                 {project.sourceType === "video" && (
                   <video autoPlay loop muted playsInline>
