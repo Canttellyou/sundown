@@ -15,8 +15,8 @@ const Projects = () => {
   const [inFocusId, setInFocusId] = useState(0);
   return (
     <StyledProjectsContainer>
-      {projects.map((project) => (
-        <>
+      {projects.map((project, index) => (
+        <div key={index}>
           <AnimatePresence>
             {inFocusId === project.id && (
               <motion.div
@@ -64,7 +64,7 @@ const Projects = () => {
               {project.title}
             </motion.h1>
           </motion.div>
-        </>
+        </div>
       ))}
       <div className="btn-container">
         <Link href={"/"}>
