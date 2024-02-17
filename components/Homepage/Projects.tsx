@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "animate.css";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { defaultStyles } from "@/utils/styling";
+import { defaultStyles, fonts } from "@/utils/styling";
 import Image from "next/image";
 import { defaultColors } from "@/utils/colors";
 import CustomButton from "../CustomButton";
@@ -54,15 +54,22 @@ const Projects = () => {
                 inFocusId === project.id ? { top: "0" } : { top: "-100%" }
               }
               transition={{ duration: 0.3 }}
-              className="background"
+              className="background "
             />
-            <motion.h1
-              initial={{ transform: "translateY(1rem)", opacity: 0 }}
-              whileInView={{ transform: "translateY(0)", opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              {project.title}
-            </motion.h1>
+            <div className="flex items-center justify-between relative z-10">
+              <motion.h1
+                initial={{ transform: "translateY(1rem)", opacity: 0 }}
+                whileInView={{ transform: "translateY(0)", opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                {project.title}
+              </motion.h1>
+
+              <div className="exhibit-type">
+                <h2>{project.brand}</h2>
+                <p>{project.type}</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       ))}
@@ -85,7 +92,7 @@ const StyledProjectsContainer = styled.div`
   margin-top: 4.7vw;
   .project {
     overflow-y: hidden;
-    padding: 1.5rem ${defaultStyles.paddingHorizontal};
+    padding: 1rem ${defaultStyles.paddingHorizontal};
     cursor: pointer;
     /* transition: background-color 0.2 ease;
     &:hover {
@@ -127,6 +134,17 @@ const StyledProjectsContainer = styled.div`
   .btn-container {
     width: 100%;
     padding: 2rem ${defaultStyles.paddingHorizontal};
+  }
+
+  .exhibit-type {
+    font-family: ${fonts.secondary};
+    line-height: 1.1;
+    font-size: 0.9rem;
+    text-align: right;
+    p {
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.8rem;
+    }
   }
 `;
 
