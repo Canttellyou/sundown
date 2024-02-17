@@ -78,18 +78,19 @@ const StyledRotatingBallsTwo = styled.div`
       background-color: ${defaultColors.primaryOrange};
       z-index: -3;
       filter: blur(35px);
-      animation: ballOneMotion 1.5s ease infinite alternate-reverse;
+      animation: ballOneMotion 1.75s ease infinite alternate-reverse;
     }
     .ball-two {
       background-color: #ff9831;
       z-index: -4;
-      animation: ballTwoMotion 1.65s ease infinite alternate-reverse;
+      animation: ballTwoMotion 1.85s ease infinite alternate-reverse;
       filter: blur(15px);
     }
     .ball-three {
       background-color: #ff9831;
+      background-image: linear-gradient(219deg, #fe330a, #ff9831 68%);
       z-index: -4;
-      animation: ballTwoThree 1.7s ease infinite alternate-reverse;
+      animation: ballTwoThree 1.8s ease infinite alternate-reverse;
       filter: blur(15px);
     }
   }

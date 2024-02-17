@@ -23,7 +23,7 @@ const StyledVideoBox = styled.div`
   margin-top: 5vw;
   .video-container {
     object-fit: cover;
-    border-radius: 1.25em;
+    border-radius: ${defaultStyles.boxBorderRadius};
     overflow: hidden;
   }
 `;

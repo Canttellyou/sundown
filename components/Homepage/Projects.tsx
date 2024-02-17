@@ -108,10 +108,10 @@ const StyledProjectsContainer = styled.div`
 
   .preview-container {
     position: fixed;
-    height: 70vh;
-    width: 23vw;
+    height: 60vh;
+    width: 25vw;
     background-color: ${defaultColors.primaryBlack};
-    bottom: 10%;
+    top: 15%;
     right: 20%;
     z-index: 10;
     border-radius: 20px;
