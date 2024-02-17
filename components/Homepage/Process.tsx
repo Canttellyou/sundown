@@ -92,6 +92,7 @@ const Process = () => {
             }}
           >
             <motion.img
+              key={index}
               src={`/process-${index + 1}.webp`}
               alt={processes[0].title}
             />
