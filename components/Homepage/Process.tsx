@@ -11,6 +11,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -91,9 +92,10 @@ const Process = () => {
               translateY,
             }}
           >
-            <motion.img
-              key={index}
-              src={`/process-${index + 1}.webp`}
+            <Image
+              //   key={index}
+              priority
+              src={processes[index].img}
               alt={processes[0].title}
             />
           </motion.div>
