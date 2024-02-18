@@ -10,7 +10,7 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
     <StyledCarouselContainer>
       {data.map((item, index) => (
         <div className="carousel-item" key={index}>
-          <Image src={item.image} alt="brand logo" />
+          <Image priority={true} src={item.image} alt="brand logo" />
           <div>{item.description}</div>
         </div>
       ))}

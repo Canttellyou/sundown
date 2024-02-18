@@ -21,7 +21,7 @@ const FeaturedProducts = () => {
 
           <div className="we-do">
             <div className="image-container">
-              <Image src={nikeBoard} alt="Nike detail shot" />
+              <Image priority={true} src={nikeBoard} alt="Nike detail shot" />
             </div>
             <div className="we-do_desc">
               We love to create, we love to solve, we love to collaborate, and

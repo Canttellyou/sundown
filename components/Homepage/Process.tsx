@@ -106,7 +106,7 @@ const Process = () => {
           >
             <Image
               //   key={index}
-              priority
+              priority={true}
               src={processes[index].img}
               alt={processes[0].title}
             />

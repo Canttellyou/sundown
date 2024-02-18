@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <StyledNav>
       <div className="img-container">
-        <Image src={logo} alt="Sundown Studio Logo" priority />
+        <Image src={logo} alt="Sundown Studio Logo" priority={true} />
       </div>
 
       <div className="desktop-links">
