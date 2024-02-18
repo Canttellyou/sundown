@@ -7,12 +7,14 @@ import {
   AnimatePresence,
   MotionValue,
   motion,
+  useAnimation,
   useScroll,
   useSpring,
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 
 const Process = () => {
@@ -29,11 +31,21 @@ const Process = () => {
     restDelta: 0.001,
   });
 
+  const { ref, inView } = useInView();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ transform: "translateY(0)", opacity: 1 });
+    }
+  }, [controls, inView]);
+
   const translateY = useTransform(springYProgress, [0, 1], [0, 200]);
   return (
     <StyledProcess
+      ref={ref}
       initial={{ transform: "translateY(5rem)", opacity: 0 }}
-      whileInView={{ transform: "translateY(0)", opacity: 1 }}
+      animate={controls}
       transition={{ duration: 0.8 }}
     >
       <div ref={targetRef} className="process-content ">

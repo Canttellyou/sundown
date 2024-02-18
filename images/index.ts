@@ -9,6 +9,11 @@ import nextIconHover from "./svgs/next-icon-hover.svg";
 import processOne from "./process-1.webp";
 import processTwo from "./process-2.webp";
 import processThree from "./process-3.webp";
+import nike from "./brands/nike.svg";
+import converse from "./brands/converse.svg";
+import arcteryx from "./brands/arcteryx.svg";
+import hunter from "./brands/hunter.svg";
+import medialink from "./brands/medialink.svg";
 
 export {
   logo,
@@ -22,4 +27,9 @@ export {
   processOne,
   processTwo,
   processThree,
+  nike,
+  converse,
+  hunter,
+  medialink,
+  arcteryx,
 };

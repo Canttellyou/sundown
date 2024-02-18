@@ -8,3 +8,8 @@ export interface ProjectsProps {
   type: string;
   brand: string;
 }
+
+export interface CarouselProps {
+  description: string;
+  image: string | StaticImageData;
+}

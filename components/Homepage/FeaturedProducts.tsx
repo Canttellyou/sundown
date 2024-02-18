@@ -6,6 +6,7 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 import RotatingBallsTwo from "../RotatingBallsTwo";
+import FeaturesHeading from "../FeaturesHeading";
 
 const FeaturedProducts = () => {
   return (
@@ -30,10 +31,7 @@ const FeaturedProducts = () => {
             </div>
           </div>
         </section>
-        <div className="featured-header">
-          <div className="dot"></div>
-          <div>Featured Projects</div>
-        </div>
+        <FeaturesHeading heading="featured projects" />
       </div>
     </StyledFeaturedProducts>
   );
@@ -75,24 +73,6 @@ const StyledFeaturedProducts = styled.div`
       font-weight: 400;
       font-size: 0.95vw;
       line-height: 1.4;
-    }
-  }
-
-  .featured-header {
-    margin-top: 5vw;
-    font-family: ${fonts.secondary}, sans-serif;
-    text-transform: uppercase;
-    font-size: 1vw;
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-    .dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background-color: ${defaultColors.primaryOrange};
-      align-self: center;
-      margin-bottom: 2px;
     }
   }
 `;

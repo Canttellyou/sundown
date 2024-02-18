@@ -1,4 +1,9 @@
 import {
+  arcteryx,
+  converse,
+  hunter,
+  medialink,
+  nike,
   processOne,
   processThree,
   processTwo,
@@ -7,7 +12,7 @@ import {
   showCaseThree,
   showCaseTwo,
 } from "@/images";
-import { ProjectsProps } from "@/interfaces/consts";
+import { CarouselProps, ProjectsProps } from "@/interfaces/consts";
 
 export const marqueList = ["Environments", "experience", "content"];
 export const processes = [
@@ -30,6 +35,7 @@ export const processes = [
     img: processThree,
   },
 ];
+
 export const projects: Array<ProjectsProps> = [
   {
     title: "Makers Studio HOI",
@@ -87,5 +93,33 @@ export const projects: Array<ProjectsProps> = [
     source: showCaseSeven,
     type: "Environment",
     brand: "Arc'teryx",
+  },
+];
+
+export const featuredBrands: CarouselProps[] = [
+  {
+    image: nike,
+    description:
+      "Retained Production support across retail and events in NY, CHI, LA. Creative Design, Design Management, Production/Project Management, and execution of work from concept to installation across the Country.",
+  },
+  {
+    image: converse,
+    description:
+      "Creative Concepting, Design, Design Management, Project Management, and execution of work from concept to installation across the Country. Cross functional communication and management of third party partners.",
+  },
+  {
+    image: arcteryx,
+    description:
+      "Production and design along with install oversight and execution support for the SoHo store opening on Broadway St, New York. Also working on creative and production work for a new store opening in Glendale, California.",
+  },
+  {
+    image: hunter,
+    description:
+      "Design and Production partner for Hunter Holiday 2022 Pop-in at Nordstrom 57th St, New York, including activations in Women’s, Men’s and Kid’s zones. Thirty-five (35) additional smaller take-downs in Nordstrom stores across the US. Concept design for Holiday boot customization events in stores across winter 2022.",
+  },
+  {
+    image: medialink,
+    description:
+      "Creative, Design, and Production Partner for 2023 CES. Scope Included creation of Branding Identity, Assets, and Digital Content, Design, Production design, Production oversight and Installation of client activations for IBM, Delta, Instacart, and more.",
   },
 ];

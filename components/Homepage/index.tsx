@@ -7,6 +7,7 @@ import { marqueList } from "@/utils/constants";
 import FeaturedProducts from "./FeaturedProducts";
 import Projects from "./Projects";
 import Process from "./Process";
+import FeaturedBrands from "./FeaturedBrands";
 // const Navbar = dynamic(() => import("@/components/Navbar"), {
 //   ssr: false,
 // });
@@ -21,6 +22,7 @@ const Homepage = () => {
       <FeaturedProducts />
       <Projects />
       <Process />
+      <FeaturedBrands />
     </div>
   );
 };
