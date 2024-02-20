@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { defaultColors } from "@/utils/colors";
 import MyComponent from "@/utils/functions/HideScrollbar";
+import { chevronLeft, chevronRight } from "@/images";
 
 const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
   type MousePosition = {
@@ -27,10 +28,14 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
     if (boxRef.current) {
       const { clientX, clientY } = e;
       const { left, top } = boxRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: clientX - left,
-        y: clientY - top,
-      });
+      if (!sideKeysPressed) {
+        setMousePosition({
+          x: clientX - left,
+          y: clientY - top,
+        });
+      } else {
+        setMousePosition(null);
+      }
     }
   };
 
@@ -38,10 +43,10 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
   const [sideKeysPressed, setSideKeysPressed] = useState<boolean>(false);
 
   const ballVariant = {
-    minWidth: elementEntered ? "5rem" : 0,
-    minHeight: elementEntered ? "5rem" : 0,
-    maxWidth: elementEntered ? "5rem" : 0,
-    maxHeight: elementEntered ? "5rem" : 0,
+    minWidth: elementEntered ? "6rem" : 0,
+    minHeight: elementEntered ? "6rem" : 0,
+    maxWidth: elementEntered ? "6rem" : 0,
+    maxHeight: elementEntered ? "6rem" : 0,
   };
   const handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.key) {
@@ -57,13 +62,13 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
   };
 
   return (
-    <MyComponent className="main-container relative overflow-x-auto  w-full ">
-      <StyledCarouselContainer
-        onMouseEnter={() => setElementEntered(true)}
-        onMouseLeave={() => setElementEntered(false)}
+    <MyComponent
+      className="main-container relative  h-[24rem]  w-full "
+      onKeyDown={handleKeyDown}
+    >
+      <div
+        className="h-full w-screen scrollbar-hide absolute top-0 right-0 bg-[transparent]"
         ref={boxRef}
-        onMouseMove={(e) => handleMouseMove(e)}
-        className="relative z-10"
       >
         <motion.div
           initial={{ minWidth: 0, minHeight: 0, maxWidth: 0, maxHeight: 0 }}
@@ -78,17 +83,29 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
           }}
           className="follow-cursor z-20 absolute"
         >
-          <div>{"<"}</div>
-          <div>{">"}</div>
+          <div className="chevron-container">
+            <Image src={chevronLeft} alt="chevron-left" />
+          </div>
+          <div className="chevron-container">
+            <Image src={chevronRight} alt="chevron-right" />
+          </div>
         </motion.div>
-
-        {data.map((item, index) => (
-          <motion.div className="carousel-item" key={index}>
-            <Image priority={true} src={item.image} alt="brand logo" />
-            <div>{item.description}</div>
-          </motion.div>
-        ))}
-      </StyledCarouselContainer>
+      </div>
+      <div className="overflow-x-auto w-full element ">
+        <StyledCarouselContainer
+          onMouseEnter={() => setElementEntered(true)}
+          onMouseLeave={() => setElementEntered(false)}
+          className="relative z-10"
+          onMouseMove={(e) => handleMouseMove(e)}
+        >
+          {data.map((item, index) => (
+            <motion.div className="carousel-item" key={index}>
+              <Image priority={true} src={item.image} alt="brand logo" />
+              <div>{item.description}</div>
+            </motion.div>
+          ))}
+        </StyledCarouselContainer>
+      </div>
     </MyComponent>
   );
 };
@@ -141,6 +158,7 @@ const StyledCarouselContainer = styled.div`
     background-color: ${defaultColors.primaryOrange};
     overflow: hidden;
     pointer-events: none;
+    font-weight: 300;
   }
 `;
 

@@ -14,6 +14,8 @@ import converse from "./brands/converse.svg";
 import arcteryx from "./brands/arcteryx.svg";
 import hunter from "./brands/hunter.svg";
 import medialink from "./brands/medialink.svg";
+import chevronRight from "./chevron-right.png";
+import chevronLeft from "./chevron-left.png";
 
 export {
   logo,
@@ -32,4 +34,6 @@ export {
   hunter,
   medialink,
   arcteryx,
+  chevronLeft,
+  chevronRight,
 };
