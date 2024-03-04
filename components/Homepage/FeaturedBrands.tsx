@@ -1,10 +1,12 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import FeaturesHeading from "../FeaturesHeading";
 import styled from "styled-components";
 import { defaultStyles } from "@/utils/styling";
 import Carousel from "../Carousel";
 import { featuredBrands } from "@/utils/constants";
+import Footer from "../Footer";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const FeaturedBrands = () => {
   return (
@@ -17,10 +19,10 @@ const FeaturedBrands = () => {
   );
 };
 
-const StyledFeaturedBrands = styled.div`
-  margin-top: 8rem;
+const StyledFeaturedBrands = styled(motion.div)`
+  background-color: #efeae3;
   .header-container {
-    padding: 0 5rem;
+    padding: 0 ${defaultStyles.paddingHorizontalBig};
     margin-bottom: 2rem;
   }
 `;

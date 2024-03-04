@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <StyledNav>
       <div className="img-container">
-        <Image src={logo} alt="Sundown Studio Logo" priority={true} />
+        <Image src={logo} alt="Beyond Design Logo" priority={true} />
       </div>
 
       <div className="desktop-links">
@@ -32,10 +32,14 @@ const Navbar = () => {
 
 const StyledNav = styled.nav`
   padding: 1.8rem ${defaultStyles.paddingHorizontal};
-  width: 100;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
 
   .img-container {
     width: 12.1%;

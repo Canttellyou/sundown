@@ -21,7 +21,7 @@ const MyComponent = styled.div`
     font-family: ${fonts.secondary};
     font-size: 1.2rem;
     color: ${defaultColors.primaryWhite};
-    background-color: ${defaultColors.primaryOrange};
+    background-color: ${defaultColors.primaryBlue};
     overflow: hidden;
     pointer-events: none;
   }

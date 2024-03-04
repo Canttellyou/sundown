@@ -25,7 +25,7 @@ const StyledFeaturesHeader = styled.div`
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    background-color: ${defaultColors.primaryOrange};
+    background-color: ${defaultColors.primaryBlue};
     align-self: center;
     margin-bottom: 2px;
   }

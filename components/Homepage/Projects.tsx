@@ -62,9 +62,9 @@ const Projects = () => {
             />
             <div className="flex items-center justify-between relative z-10">
               <motion.h1
-                initial={{ transform: "translateY(1rem)", opacity: 0 }}
+                initial={{ transform: "translateY(3rem)", opacity: 0 }}
                 whileInView={{ transform: "translateY(0)", opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
                 {project.title}
               </motion.h1>
@@ -94,6 +94,8 @@ const Projects = () => {
 const StyledProjectsContainer = styled.div`
   width: 100%;
   margin-top: 4.7vw;
+  position: relative;
+  z-index: 20;
   .project {
     overflow-y: hidden;
     padding: 1rem ${defaultStyles.paddingHorizontal};
@@ -112,7 +114,7 @@ const StyledProjectsContainer = styled.div`
   .background {
     width: 100%;
     height: 100%;
-    background-color: #ff9831;
+    background-color: #009191;
     position: absolute;
     left: 0;
   }

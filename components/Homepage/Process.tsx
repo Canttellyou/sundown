@@ -13,9 +13,10 @@ import {
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
+import Footer from "../Footer";
 
 const Process = () => {
   const [index, setIndex] = useState<number>(0);
@@ -41,79 +42,85 @@ const Process = () => {
   }, [controls, inView]);
 
   const translateY = useTransform(springYProgress, [0, 1], [0, 200]);
+
   return (
-    <StyledProcess
-      ref={ref}
-      initial={{ transform: "translateY(5rem)", opacity: 0 }}
-      animate={controls}
-      transition={{ duration: 0.8 }}
-    >
-      <div ref={targetRef} className="process-content ">
-        <section className="first-part">
-          {processes.map((process, i) => (
-            <div key={i}>
-              <div
-                onClick={() => setIndex(i)}
-                className="titles flex gap-4 items-center cursor-pointer"
-              >
+    <>
+      <StyledProcess
+        ref={ref}
+        initial={{ transform: "translateY(5rem)", opacity: 0 }}
+        animate={controls}
+        transition={{ duration: 0.8 }}
+      >
+        <div ref={targetRef} className="process-content ">
+          <section className="first-part">
+            {processes.map((process, i) => (
+              <div key={i}>
                 <div
-                  className="title-line"
-                  style={{
-                    border:
-                      index === i ? "1.5px solid red" : "1.5px solid #504A45",
-                  }}
-                ></div>
-                <h2
-                  style={{
-                    color: index === i ? defaultColors.primaryWhite : "#504A45",
-                  }}
+                  onClick={() => setIndex(i)}
+                  className="titles flex gap-4 items-center cursor-pointer"
                 >
-                  {process.title}
-                </h2>
-              </div>
-            </div>
-          ))}
-
-          {processes.map((process, i) => (
-            <div key={i} className="process-desc">
-              {i === index && (
-                <AnimatePresence>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.75 }}
+                  <div
+                    className="title-line"
+                    style={{
+                      border:
+                        index === i
+                          ? "1.5px solid #00A8A4"
+                          : "1.5px solid #504A45",
+                    }}
+                  ></div>
+                  <h2
+                    style={{
+                      color:
+                        index === i ? defaultColors.primaryWhite : "#504A45",
+                    }}
                   >
-                    {process.description}
-                  </motion.p>
-                </AnimatePresence>
-              )}
-            </div>
-          ))}
-        </section>
+                    {process.title}
+                  </h2>
+                </div>
+              </div>
+            ))}
 
-        <section className="second-part">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.75 }}
-            className="img-container"
-            style={{
-              translateY,
-            }}
-          >
-            <Image
-              //   key={index}
-              priority={true}
-              src={processes[index].img}
-              alt={processes[0].title}
-            />
-          </motion.div>
-        </section>
-      </div>
-    </StyledProcess>
+            {processes.map((process, i) => (
+              <div key={i} className="process-desc">
+                {i === index && (
+                  <AnimatePresence>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.75 }}
+                    >
+                      {process.description}
+                    </motion.p>
+                  </AnimatePresence>
+                )}
+              </div>
+            ))}
+          </section>
+
+          <section className="second-part">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.75 }}
+              className="img-container"
+              style={{
+                translateY,
+              }}
+            >
+              <Image
+                //   key={index}
+                priority={true}
+                src={processes[index].img}
+                alt={processes[0].title}
+              />
+            </motion.div>
+          </section>
+        </div>
+      </StyledProcess>
+    </>
   );
 };
 
@@ -166,7 +173,7 @@ const StyledProcess = styled(motion.div)`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.35);
+      transform: scale(1.25);
     }
   }
 `;

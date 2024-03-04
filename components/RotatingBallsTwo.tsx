@@ -4,10 +4,16 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const RotatingBallsTwo = () => {
+const RotatingBallsTwo = ({
+  width,
+  height,
+}: {
+  width: string;
+  height: string;
+}) => {
   return (
     <StyledRotatingBallsTwo>
-      <div className="balls-container">
+      <div className="balls-two-container" style={{ width, height }}>
         <div className="ball-one" />
         <div className="ball-two" />
         <div className="ball-three"></div>
@@ -22,7 +28,7 @@ const StyledRotatingBallsTwo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -5;
+  /* z-index: -5; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,9 +68,7 @@ const StyledRotatingBallsTwo = styled.div`
     }
   }
 
-  .balls-container {
-    width: 35vw;
-    height: 35vw;
+  .balls-two-container {
     position: relative;
     top: 20%;
 
@@ -75,20 +79,24 @@ const StyledRotatingBallsTwo = styled.div`
       position: absolute;
     }
     .ball-one {
-      background-color: ${defaultColors.primaryOrange};
+      background-color: ${defaultColors.primaryBlue};
       z-index: -3;
       filter: blur(35px);
       animation: ballOneMotion 1.75s ease infinite alternate-reverse;
+      background-image: linear-gradient(
+        ${defaultColors.primaryBlue},
+        ${defaultColors.primaryLemon} 48%
+      );
     }
     .ball-two {
-      background-color: #ff9831;
+      background-color: ${defaultColors.primaryBlue};
       z-index: -4;
       animation: ballTwoMotion 1.85s ease infinite alternate-reverse;
       filter: blur(15px);
     }
     .ball-three {
-      background-color: #ff9831;
-      background-image: linear-gradient(219deg, #fe330a, #ff9831 68%);
+      background-color: ${defaultColors.primaryBlue};
+
       z-index: -4;
       animation: ballTwoThree 1.8s ease infinite alternate-reverse;
       filter: blur(15px);

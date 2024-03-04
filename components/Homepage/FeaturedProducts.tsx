@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
     <StyledFeaturedProducts>
       <div className="featured-content">
         <section className="who-container">
-          <RotatingBallsTwo />
+          <RotatingBallsTwo width="35vw" height="35vw" />
           <h1>
             We are a group of design-driven, goal-focused creators, producers,
             and designers who believe that the details make all the difference.
@@ -48,6 +48,7 @@ const StyledFeaturedProducts = styled.div`
     width: 100%;
     padding: 0 calc(${defaultStyles.paddingHorizontal} + 2%);
     position: relative;
+    z-index: 20;
 
     h1 {
       max-width: 55.25vw;

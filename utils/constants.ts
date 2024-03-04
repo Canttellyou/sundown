@@ -19,7 +19,7 @@ export const processes = [
   {
     title: "Design",
     description:
-      "Our team works with our clients to refine an idea and concept into an executable design. We create a final design that encompasses the brand narrative to bring stories to life and provide end-to-end design solutions from concept, design, and architectural drawings to 3D renderings.",
+      "We engage in a dynamic partnership with our clients, transforming their initial spark of an idea into a concrete design. We shape a unique design that encapsulates the brand’s identity, giving life to their story. Our comprehensive design services span from the birth of the concept, through the design process, to the creation of detailed architectural plans and vivid 3D models.",
     img: processOne,
   },
   {

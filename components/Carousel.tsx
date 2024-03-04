@@ -5,7 +5,7 @@ import { defaultStyles, fonts } from "@/utils/styling";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { defaultColors } from "@/utils/colors";
 import MyComponent from "@/utils/functions/HideScrollbar";
 import { chevronLeft, chevronRight } from "@/images";
@@ -28,19 +28,16 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
     if (boxRef.current) {
       const { clientX, clientY } = e;
       const { left, top } = boxRef.current.getBoundingClientRect();
-      if (!sideKeysPressed) {
-        setMousePosition({
-          x: clientX - left,
-          y: clientY - top,
-        });
-      } else {
-        setMousePosition(null);
-      }
+
+      setMousePosition({
+        x: clientX - left,
+        y: clientY - top,
+      });
     }
   };
 
   const [elementEntered, setElementEntered] = useState<boolean>(false);
-  const [sideKeysPressed, setSideKeysPressed] = useState<boolean>(false);
+  // const [sideKeysPressed, setSideKeysPressed] = useState<boolean>(false);
 
   const ballVariant = {
     minWidth: elementEntered ? "6rem" : 0,
@@ -48,24 +45,9 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
     maxWidth: elementEntered ? "6rem" : 0,
     maxHeight: elementEntered ? "6rem" : 0,
   };
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    switch (event.key) {
-      case "ArrowLeft":
-      case "ArrowRight":
-        console.log("pressed");
-        setSideKeysPressed(true);
-        break;
-      default:
-        setSideKeysPressed(false);
-        break;
-    }
-  };
 
   return (
-    <MyComponent
-      className="main-container relative  h-[24rem]  w-full "
-      onKeyDown={handleKeyDown}
-    >
+    <MyComponent className="main-container relative  h-[24rem]  w-full ">
       <div
         className="h-full w-screen scrollbar-hide absolute top-0 right-0 bg-[transparent]"
         ref={boxRef}
@@ -136,7 +118,7 @@ const StyledCarouselContainer = styled.div`
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     padding-left: 1.5rem;
     min-width: 16rem;
-    margin-left: 5rem;
+    margin-left: ${defaultStyles.paddingHorizontalBig};
     height: fit-content;
     img {
       margin-bottom: 1.5rem;
@@ -155,7 +137,7 @@ const StyledCarouselContainer = styled.div`
     font-family: ${fonts.secondary};
     font-size: 1.2rem;
     color: ${defaultColors.primaryWhite};
-    background-color: ${defaultColors.primaryOrange};
+    background-color: ${defaultColors.primaryBlue};
     overflow: hidden;
     pointer-events: none;
     font-weight: 300;

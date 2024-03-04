@@ -23,7 +23,7 @@ const MarqueSlider = ({ list }: MarqueSliderProps) => {
             style={{
               width: "3vw",
               height: "3vw",
-              background: defaultColors.primaryOrange,
+              background: defaultColors.primaryBlue,
               borderRadius: "50%",
             }}
           ></div>
