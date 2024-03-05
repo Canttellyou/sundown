@@ -51,8 +51,8 @@ const Process = () => {
         animate={controls}
         transition={{ duration: 0.8 }}
       >
-        <div ref={targetRef} className="process-content ">
-          <section className="first-part">
+        <div ref={targetRef} className="process-content">
+          <div className="first-part">
             {processes.map((process, i) => (
               <div key={i}>
                 <div
@@ -96,9 +96,9 @@ const Process = () => {
                 )}
               </div>
             ))}
-          </section>
+          </div>
 
-          <section className="second-part">
+          <div className="second-part">
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
@@ -117,7 +117,7 @@ const Process = () => {
                 alt={processes[0].title}
               />
             </motion.div>
-          </section>
+          </div>
         </div>
       </StyledProcess>
     </>
@@ -136,6 +136,10 @@ const StyledProcess = styled(motion.div)`
     background-color: ${defaultColors.primaryBlack};
 
     display: flex;
+    @media only screen and (max-width: 700px) {
+      flex-direction: column;
+      height: fit-content;
+    }
 
     .title-line {
       /* width: 2px; */
@@ -158,6 +162,9 @@ const StyledProcess = styled(motion.div)`
     max-width: 45%;
     padding: 0 8%;
     padding-top: 15%;
+    @media only screen and (max-width: 700px) {
+      max-width: 100%;
+    }
     p {
       font-size: 0.9rem;
     }
@@ -168,12 +175,21 @@ const StyledProcess = styled(motion.div)`
     height: 100%;
     width: 55%;
     overflow: hidden;
-    object-fit: cover;
+
+    .img-container {
+      border-radius: ${defaultStyles.boxBorderRadius};
+    }
+    @media only screen and (max-width: 700px) {
+      width: 100%;
+      padding-top: 3rem;
+      height: 60vh;
+    }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transform: scale(1.25);
+      border-radius: ${defaultStyles.boxBorderRadius};
     }
   }
 `;
