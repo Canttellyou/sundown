@@ -1,5 +1,5 @@
 "use client";
-import { footerTitle, nextIconHover } from "@/images";
+import { footerTitle } from "@/images";
 import { defaultColors } from "@/utils/colors";
 import { defaultStyles, fonts } from "@/utils/styling";
 import { AnimatePresence, motion } from "framer-motion";
@@ -7,8 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { FooterHeightContext, FooterHeightContextProps } from "./Homepage";
-import RotatingBalls from "./RotatingBalls";
+import { FooterHeightContext } from "./Homepage";
 
 const Footer = () => {
   //   const { scrollYProgress } = useScroll({
@@ -63,10 +62,8 @@ const Footer = () => {
       //   }}
       ref={targetRef}
     >
-      {/* <Image className="hand" src={hand} alt="hand" /> */}
       <div className="top-element">
         <div className="balls-container">
-          {/* <RotatingBalls /> */}
           <div className="footer-ball"></div>
         </div>
         <div className="contacts">
@@ -154,7 +151,6 @@ const Footer = () => {
 };
 
 const StyledFooter = styled(motion.footer)`
-  width: 100%;
   background-color: ${defaultColors.primaryBlack};
   max-height: 120vh;
   overflow-y: hidden;
@@ -195,7 +191,7 @@ const StyledFooter = styled(motion.footer)`
 
     .balls-container {
       position: absolute;
-      width: 100vw;
+      width: 100%;
       z-index: -5;
       /* top: ; */
       transform: translateY(-97%);

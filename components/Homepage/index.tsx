@@ -39,25 +39,27 @@ const Homepage = () => {
   // const marginBottom = useTransform(scrollYProgress, [0, 1], [0, height]);
 
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 2, smoothTouch: true }}>
-      <FooterHeightContext.Provider value={{ height, setHeight }}>
-        <motion.div
-          ref={targetRef}
-          style={{ marginBottom: height }}
-          className={`bg-[#efeae3] z-[99] `}
-        >
-          <Navbar />
-          <HeroSection />
-          <VideoBox />
-          <MarqueSlider list={marqueList} />
-          <FeaturedProducts />
-          <Projects />
-          <Process />
-          <FeaturedBrands />
-        </motion.div>
-        <Footer />
-      </FooterHeightContext.Provider>
-    </ReactLenis>
+    <div style={{ width: "100%", overflowX: "hidden" }}>
+      <ReactLenis root options={{ lerp: 0.1, duration: 2, smoothTouch: true }}>
+        <FooterHeightContext.Provider value={{ height, setHeight }}>
+          <motion.div
+            ref={targetRef}
+            style={{ marginBottom: height, width: "100%" }}
+            className={`bg-[#efeae3] z-[99] `}
+          >
+            <Navbar />
+            <HeroSection />
+            <VideoBox />
+            <MarqueSlider list={marqueList} />
+            <FeaturedProducts />
+            <Projects />
+            <Process />
+            <FeaturedBrands />
+          </motion.div>
+          <Footer />
+        </FooterHeightContext.Provider>
+      </ReactLenis>
+    </div>
   );
 };
 

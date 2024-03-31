@@ -20,15 +20,6 @@ const CustomButton = ({
 }: ButtonProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-
-
-
-
-
-
-
-
-  
   return (
     <StyledButtonContainer>
       <StyledButton

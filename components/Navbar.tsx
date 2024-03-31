@@ -6,6 +6,7 @@ import React from "react";
 import styled from "styled-components";
 import { CustomButton } from ".";
 import Link from "next/link";
+import BurgerIcon from "./BurgerIcon";
 
 const Navbar = () => {
   const navLinks = [
@@ -26,6 +27,8 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+
+      <BurgerIcon />
     </StyledNav>
   );
 };
@@ -53,6 +56,7 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     gap: 12px;
+    display: none;
   }
 `;
 

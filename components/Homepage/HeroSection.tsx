@@ -74,8 +74,7 @@ const StyledHeroSection = styled.div`
     position: absolute;
 
     bottom: -50%;
-    left: auto;
-    right: 0%;
+    right: 0;
   }
 
   .logo-text-1 {

@@ -34,7 +34,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background-color: #efeae3;
-  font-family: "NeueHaasDisplay-Mediu"     ;
+  font-family: "NeueHaasDisplay-Mediu", sans-serif;
   color: #0b0500;
   position: relative;
 }
