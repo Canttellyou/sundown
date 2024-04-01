@@ -4,9 +4,8 @@ import { defaultStyles } from "@/utils/styling";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
-import { CustomButton } from ".";
+import { BurgerMenu, CustomButton } from ".";
 import Link from "next/link";
-import BurgerIcon from "./BurgerIcon";
 
 const Navbar = () => {
   const navLinks = [
@@ -27,8 +26,9 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-
-      <BurgerIcon />
+      <div className="mobile-nav">
+        <BurgerMenu />
+      </div>
     </StyledNav>
   );
 };
@@ -56,7 +56,16 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     gap: 12px;
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  .mobile-nav {
     display: none;
+    @media screen and (max-width: 480px) {
+      display: initial;
+    }
   }
 `;
 
