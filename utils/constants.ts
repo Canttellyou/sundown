@@ -123,3 +123,9 @@ export const featuredBrands: CarouselProps[] = [
       "Creative, Design, and Production Partner for 2023 CES. Scope Included creation of Branding Identity, Assets, and Digital Content, Design, Production design, Production oversight and Installation of client activations for IBM, Delta, Instacart, and more.",
   },
 ];
+
+export const navLinks = [
+  { link: "/", title: "Work" },
+  { link: "/", title: "Studio" },
+  { link: "/", title: "Contact" },
+];

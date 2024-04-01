@@ -6,17 +6,18 @@ import React from "react";
 import styled from "styled-components";
 import { BurgerMenu, CustomButton } from ".";
 import Link from "next/link";
+import { navLinks } from "@/utils/constants";
 
 const Navbar = () => {
-  const navLinks = [
-    { link: "/", title: "Work" },
-    { link: "/", title: "Studio" },
-    { link: "/", title: "Contact" },
-  ];
   return (
     <StyledNav>
       <div className="img-container">
-        <Image src={logo} alt="Beyond Design Logo" priority={true} />
+        <Image
+          className="logo-img"
+          src={logo}
+          alt="Beyond Design Logo"
+          priority={true}
+        />
       </div>
 
       <div className="desktop-links">
@@ -26,7 +27,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div className="mobile-nav">
+      <div className="mobile-nav w-[68%] absolute top-[0] right-0">
         <BurgerMenu />
       </div>
     </StyledNav>
@@ -46,7 +47,10 @@ const StyledNav = styled.nav`
 
   .img-container {
     width: 12.1%;
-    img {
+    @media screen and (max-width: 500px) {
+      width: 18%;
+    }
+    logo-img {
       width: 100%;
       object-fit: contain;
     }
@@ -56,14 +60,15 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     gap: 12px;
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 500px) {
       display: none;
     }
   }
 
   .mobile-nav {
     display: none;
-    @media screen and (max-width: 480px) {
+
+    @media screen and (max-width: 500px) {
       display: initial;
     }
   }

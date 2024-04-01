@@ -89,7 +89,7 @@ const StyledHeroSection = styled.div`
     letter-spacing: -0.03em;
     font-size: 2.3vw;
     font-weight: 500;
-    max-width: 33%;
+    width: 33%;
     line-height: 1;
     display: flex;
     flex-direction: column;
