@@ -48,7 +48,7 @@ const BurgerIcon = ({
           />
         </div>
 
-        <div className="menu">Menu</div>
+        {/* <div className="menu">Menu</div> */}
       </div>
     </StyledBurgerIcon>
   );
