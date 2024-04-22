@@ -21,6 +21,10 @@ const StyledFeaturesHeader = styled.div`
   display: flex;
   align-items: center;
   column-gap: 10px;
+  @media screen and (max-width: 500px) {
+    font-size: 1.1rem;
+    margin-top: 5rem;
+  }
   .dot {
     width: 0.5rem;
     height: 0.5rem;

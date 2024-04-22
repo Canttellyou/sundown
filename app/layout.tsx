@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import Head from "next/head";
+import { GlobalStyle } from "@/utils/styling";
 
 export const metadata: Metadata = {
   title: "Beyond Design",

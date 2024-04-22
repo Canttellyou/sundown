@@ -3,7 +3,6 @@ import React, {
   Dispatch,
   SetStateAction,
   createContext,
-  useEffect,
   useRef,
   useState,
 } from "react";
@@ -17,7 +16,7 @@ import Projects from "./Projects";
 import Process from "./Process";
 import FeaturedBrands from "./FeaturedBrands";
 import Footer from "../Footer";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
 export interface FooterHeightContextProps {
