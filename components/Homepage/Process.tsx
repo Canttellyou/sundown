@@ -128,7 +128,7 @@ const Process: React.FC = () => {
               }}
             >
               <Image
-                priority={true}
+                // priority={true}
                 src={processes[index].img}
                 alt={processes[index].title}
               />
