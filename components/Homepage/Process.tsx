@@ -13,7 +13,13 @@ import {
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import Footer from "../Footer";
@@ -42,6 +48,12 @@ const Process = () => {
   }, [controls, inView]);
 
   const translateY = useTransform(springYProgress, [0, 1], [0, 200]);
+  const handleClick = useCallback(
+    (i: number) => {
+      setIndex(i);
+    },
+    [setIndex]
+  );
 
   return (
     <>
@@ -56,7 +68,7 @@ const Process = () => {
             {processes.map((process, i) => (
               <div key={i}>
                 <div
-                  onClick={() => setIndex(i)}
+                  onClick={() => handleClick(i)}
                   className="titles flex gap-4 items-center cursor-pointer"
                 >
                   <div
