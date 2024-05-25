@@ -1,30 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { defaultColors } from "@/utils/colors";
-import { processes } from "@/utils/constants";
-import { defaultStyles, fonts } from "@/utils/styling";
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+} from "react";
 import {
   AnimatePresence,
-  MotionValue,
   motion,
   useAnimation,
   useScroll,
   useSpring,
   useTransform,
 } from "framer-motion";
-import Image from "next/image";
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
+import Image from "next/image";
 import Footer from "../Footer";
+import { defaultColors } from "@/utils/colors";
+import { processes } from "@/utils/constants";
+import { defaultStyles, fonts } from "@/utils/styling";
 
-const Process = () => {
+const Process: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -48,11 +47,58 @@ const Process = () => {
   }, [controls, inView]);
 
   const translateY = useTransform(springYProgress, [0, 1], [0, 200]);
-  const handleClick = useCallback(
-    (i: number) => {
-      setIndex(i);
-    },
-    [setIndex]
+
+  const handleClick = useCallback((i: number) => {
+    setIndex(i);
+  }, []);
+
+  const processList = useMemo(
+    () =>
+      processes.map((process, i) => (
+        <div key={i}>
+          <div
+            onClick={() => handleClick(i)}
+            className="titles flex gap-4 items-center cursor-pointer"
+          >
+            <div
+              className="title-line"
+              style={{
+                border:
+                  index === i ? "1.5px solid #00A8A4" : "1.5px solid #504A45",
+              }}
+            ></div>
+            <h2
+              style={{
+                color: index === i ? defaultColors.primaryWhite : "#504A45",
+              }}
+            >
+              {process.title}
+            </h2>
+          </div>
+        </div>
+      )),
+    [index, handleClick]
+  );
+
+  const processDescriptions = useMemo(
+    () =>
+      processes.map((process, i) => (
+        <div key={i} className="process-desc">
+          {i === index && (
+            <AnimatePresence>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.75 }}
+              >
+                {process.description}
+              </motion.p>
+            </AnimatePresence>
+          )}
+        </div>
+      )),
+    [index]
   );
 
   return (
@@ -65,49 +111,8 @@ const Process = () => {
       >
         <div ref={targetRef} className="process-content">
           <div className="first-part">
-            {processes.map((process, i) => (
-              <div key={i}>
-                <div
-                  onClick={() => handleClick(i)}
-                  className="titles flex gap-4 items-center cursor-pointer"
-                >
-                  <div
-                    className="title-line"
-                    style={{
-                      border:
-                        index === i
-                          ? "1.5px solid #00A8A4"
-                          : "1.5px solid #504A45",
-                    }}
-                  ></div>
-                  <h2
-                    style={{
-                      color:
-                        index === i ? defaultColors.primaryWhite : "#504A45",
-                    }}
-                  >
-                    {process.title}
-                  </h2>
-                </div>
-              </div>
-            ))}
-
-            {processes.map((process, i) => (
-              <div key={i} className="process-desc">
-                {i === index && (
-                  <AnimatePresence>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.75 }}
-                    >
-                      {process.description}
-                    </motion.p>
-                  </AnimatePresence>
-                )}
-              </div>
-            ))}
+            {processList}
+            {processDescriptions}
           </div>
 
           <div className="second-part">
@@ -123,10 +128,9 @@ const Process = () => {
               }}
             >
               <Image
-                //   key={index}
                 priority={true}
                 src={processes[index].img}
-                alt={processes[0].title}
+                alt={processes[index].title}
               />
             </motion.div>
           </div>
@@ -146,15 +150,14 @@ const StyledProcess = styled(motion.div)`
     height: 110vh;
     border-radius: ${defaultStyles.boxBorderRadius};
     background-color: ${defaultColors.primaryBlack};
-
     display: flex;
+
     @media only screen and (max-width: 700px) {
       flex-direction: column;
       height: fit-content;
     }
 
     .title-line {
-      /* width: 2px; */
       height: 4.2rem;
     }
 
@@ -174,9 +177,11 @@ const StyledProcess = styled(motion.div)`
     max-width: 45%;
     padding: 0 8%;
     padding-top: 15%;
+
     @media only screen and (max-width: 700px) {
       max-width: 100%;
     }
+
     p {
       font-size: 0.9rem;
     }
@@ -191,11 +196,13 @@ const StyledProcess = styled(motion.div)`
     .img-container {
       border-radius: ${defaultStyles.boxBorderRadius};
     }
+
     @media only screen and (max-width: 700px) {
       width: 100%;
       padding-top: 3rem;
       height: 60vh;
     }
+
     img {
       width: 100%;
       height: 100%;
