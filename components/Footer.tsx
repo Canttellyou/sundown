@@ -38,12 +38,8 @@ const Footer = () => {
 
   const socials = [
     {
-      title: "Instagram",
-      link: "/",
-    },
-    {
       title: "LinkedIn",
-      link: "/",
+      link: "https://www.linkedin.com/in/jason-akbar-2813bb21a/",
     },
   ];
 
@@ -92,12 +88,12 @@ const Footer = () => {
                 <path
                   d="M1 5H31"
                   stroke="#000000dd"
-                  stroke-linecap="square"
+                  strokeLinecap="square"
                 ></path>
                 <path
                   d="M28.5 1.5L32 5L28.5 8.5"
                   stroke="#000000dd"
-                  stroke-linecap="square"
+                  strokeLinecap="square"
                 ></path>
               </svg>
             </div>
@@ -107,10 +103,10 @@ const Footer = () => {
 
       <div className="bottom-element">
         <div className="img-container">
-          <Image src={footerTitle} alt="sundown" />
+          <Image src={footerTitle} priority={true} alt="sundown" />
         </div>
 
-        <div className=" copyright flex w-full justify-between items-center pt-3 pb-3 ">
+        <div className=" copyright flex w-full flex-wrap justify-between items-center pt-3 pb-3 ">
           <div>Copyright © Beyond Design</div>
           <div className="flex items-center gap-2">
             {" "}
@@ -126,7 +122,7 @@ const Footer = () => {
             <div
               onMouseEnter={() => setLinkNumber(index + 1)}
               onMouseLeave={() => setLinkNumber(0)}
-              className="link flex w-fit flex-col items-start  relative overflow-x-hidden"
+              className="link flex w-fit  flex-col items-start  relative overflow-x-hidden"
               key={index}
             >
               <Link href={social.link}>{social.title}</Link>
@@ -152,35 +148,31 @@ const Footer = () => {
 
 const StyledFooter = styled(motion.footer)`
   background-color: ${defaultColors.primaryBlack};
-  max-height: 120vh;
-  overflow-y: hidden;
+  /* max-height: 120vh; */
+  @media screen and (max-width: 500px) {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   /* background-image: linear-gradient(
     ${defaultColors.primaryBlue},
     ${defaultColors.primaryBlack} 90%
   ); */
   color: ${defaultColors.primaryWhite};
   margin-top: auto;
-  position: relative;
-  position: fixed;
 
   bottom: 0;
   right: 0;
   left: 0;
   overflow: hidden;
 
-  z-index: -10;
+  /* z-index: -10; */
   /* transition: all 0.01s ease; */
 
-  .hand {
-    position: absolute;
-    bottom: -40%;
-    width: 55vw;
-    z-index: -2;
-    left: 20%;
-  }
-
   .top-element {
-    padding: ${defaultStyles.paddingHorizontalBig};
+    padding: 2rem ${defaultStyles.paddingHorizontalBig};
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -188,6 +180,9 @@ const StyledFooter = styled(motion.footer)`
     color: ${defaultColors.primaryBlack};
     position: relative;
     z-index: 12;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
 
     .balls-container {
       position: absolute;
@@ -195,6 +190,9 @@ const StyledFooter = styled(motion.footer)`
       z-index: -5;
       /* top: ; */
       transform: translateY(-97%);
+      @media screen and (max-width: 500px) {
+        transform: translateY(-47%);
+      }
       left: 0;
       display: flex;
       justify-content: center;
@@ -215,10 +213,17 @@ const StyledFooter = styled(motion.footer)`
 
     .contacts {
       font-size: 2rem;
+      @media screen and (max-width: 500px) {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
       & > * {
         transition: opacity 0.2s ease;
         line-height: 1.4;
         font-weight: 500;
+        @media screen and (max-width: 500px) {
+          text-align: center;
+        }
         &:hover {
           opacity: 0.7;
         }
@@ -229,6 +234,12 @@ const StyledFooter = styled(motion.footer)`
       font-family: ${fonts.secondary};
       font-size: 1.2rem;
       max-width: 20rem;
+      @media screen and (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
       .email-container {
         margin-top: 2rem;
         display: flex;
@@ -236,6 +247,11 @@ const StyledFooter = styled(motion.footer)`
         width: fit-content;
         border-bottom: 1px solid ${defaultColors.placeholder};
         align-items: center;
+
+        @media screen and (max-width: 500px) {
+          justify-content: space-between;
+          width: 100%;
+        }
 
         input {
           background-color: transparent;
@@ -266,11 +282,16 @@ const StyledFooter = styled(motion.footer)`
       img {
         width: 80%;
         height: 50vh;
+        @media screen and (max-width: 500px) {
+          width: 100%;
+          height: auto;
+        }
       }
     }
 
     .copyright {
       border-top: 1.5px solid rgba(239, 234, 227, 0.3);
+
       img {
         width: 2rem;
         height: 2rem;

@@ -24,6 +24,9 @@ const MyComponent = styled.div`
     background-color: ${defaultColors.primaryBlue};
     overflow: hidden;
     pointer-events: none;
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
   }
 
   .element {

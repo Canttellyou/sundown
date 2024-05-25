@@ -95,7 +95,9 @@ const Carousel = ({ data }: { data: Array<CarouselProps> }) => {
 const StyledCarouselContainer = styled.div`
   width: fit-content;
   cursor: none;
-
+  @media screen and (max-width: 500px) {
+    cursor: default;
+  }
   display: flex;
   padding-top: 1rem;
 
@@ -117,8 +119,12 @@ const StyledCarouselContainer = styled.div`
   .carousel-item {
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     padding-left: 1.5rem;
+
     min-width: 16rem;
     margin-left: ${defaultStyles.paddingHorizontalBig};
+    @media screen and (max-width: 500px) {
+      margin-left: ${defaultStyles.paddingHorizontal};
+    }
     height: fit-content;
     img {
       margin-bottom: 1.5rem;
@@ -126,21 +132,6 @@ const StyledCarouselContainer = styled.div`
     }
     font-family: ${fonts.secondary};
     font-size: 0.9rem;
-  }
-
-  .follow-cursor {
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    font-family: ${fonts.secondary};
-    font-size: 1.2rem;
-    color: ${defaultColors.primaryWhite};
-    background-color: ${defaultColors.primaryBlue};
-    overflow: hidden;
-    pointer-events: none;
-    font-weight: 300;
   }
 `;
 
